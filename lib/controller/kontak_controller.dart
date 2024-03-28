@@ -24,6 +24,13 @@ class KontakController {
         };
       } else {
         // Penanganan ketika Content-Type bukan application/json
+        if (response.headers['content-type']!.contains('application/json')) {
+          var decodedJson = jsonDecode(response.body);
+          return {
+            'success': false,
+            'message': decodedJson['message'] ?? 'Terjadi kesalahan',
+          };
+        }
 
         var decodedJson = jsonDecode(response.body);
         return {

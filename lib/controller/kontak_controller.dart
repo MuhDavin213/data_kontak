@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:data_kontak/class/kontak.dart';
+import 'package:data_kontak/model/kontak.dart';
 import 'package:data_kontak/service/kontak_service.dart';
 
 class KontakController {

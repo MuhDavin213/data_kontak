@@ -38,7 +38,7 @@ class KontakService {
       final Map<String, dynamic> decodeResponse = json.decode(response.body);
       return decodeResponse['people'];
     } else {
-      throw Exception();
+      throw Exception('Failed to load people: ${response.reasonPhrase}');
     }
   }
 }

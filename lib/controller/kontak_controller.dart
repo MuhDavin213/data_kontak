@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:data_kontak/model/kontak.dart';
+import 'package:data_kontak/model/person.dart';
 import 'package:data_kontak/service/kontak_service.dart';
 
 class KontakController {
@@ -40,11 +41,22 @@ class KontakController {
         };
       }
     } catch (e) {
-      // Menangkap kesalahan jaringan atau saat decoding JSON
       return {
         'success': false,
         'message': 'Terjadi kesalahan: $e',
       };
+    }
+  }
+
+  Future<List<person>> getPeople() async {
+    try {
+      List<dynamic> peopleData = await kontakService.fetchPeople();
+      List<person> people =
+          peopleData.map((json) => person.fromMap(json)).toList();
+      return people;
+    } catch (e) {
+      print(e);
+      throw Exception("Failed to get people");
     }
   }
 }

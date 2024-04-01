@@ -23,6 +23,8 @@ class _FormKontakState extends State<FormKontak> {
   final _alamatController = TextEditingController();
   final _noTeleponController = TextEditingController();
 
+  final KontakController _personController = KontakController();
+
   Future<void> getImage() async {
     final XFile? pickerFile =
         await _imagePicker.pickImage(source: ImageSource.gallery);
@@ -105,7 +107,7 @@ class _FormKontakState extends State<FormKontak> {
                       email: _emailController.text,
                       alamat: _alamatController.text,
                       noTelepon: _noTeleponController.text,
-                      gambar: _image!.path,
+                      foto: _image!.path,
                     );
                     var result = await KontakController().addPerson(
                       _person,

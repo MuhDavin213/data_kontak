@@ -6,7 +6,7 @@ import 'package:data_kontak/model/person.dart';
 import 'package:data_kontak/service/kontak_service.dart';
 
 class KontakController {
-  final kontakService = KontakService();
+  final KontakService kontakService = KontakService();
 
   Future<Map<String, dynamic>> addPerson(Kontak person, File? file) async {
     Map<String, String> data = {

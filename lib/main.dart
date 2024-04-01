@@ -1,3 +1,4 @@
+import 'package:data_kontak/screen/homeView.dart';
 import 'package:data_kontak/widget/form_kontak.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Selamat Malam'),
           backgroundColor: Colors.amber,
         ),
-        body: const FormKontak(),
+        body: const HomeView(),
       ),
     );
   }

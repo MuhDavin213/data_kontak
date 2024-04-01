@@ -105,7 +105,7 @@ class _FormKontakState extends State<FormKontak> {
                       email: _emailController.text,
                       alamat: _alamatController.text,
                       noTelepon: _noTeleponController.text,
-                      foto: _image!.path,
+                      gambar: _image!.path,
                     );
                     var result = await KontakController().addPerson(
                       _person,

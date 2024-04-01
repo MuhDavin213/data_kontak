@@ -1,33 +1,25 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-class person {
+class Person {
   final String nama;
   final String email;
-  final String alamat;
-  final String noTelepon;
-  final String foto;
-  person({
+  final String gambar;
+  Person({
     required this.nama,
     required this.email,
-    required this.alamat,
-    required this.noTelepon,
-    required this.foto,
+    required this.gambar,
   });
 
-  person copyWith({
+  Person copyWith({
     String? nama,
     String? email,
-    String? alamat,
-    String? noTelepon,
-    String? foto,
+    String? gambar,
   }) {
-    return person(
+    return Person(
       nama: nama ?? this.nama,
       email: email ?? this.email,
-      alamat: alamat ?? this.alamat,
-      noTelepon: noTelepon ?? this.noTelepon,
-      foto: foto ?? this.foto,
+      gambar: gambar ?? this.gambar,
     );
   }
 
@@ -35,49 +27,33 @@ class person {
     return <String, dynamic>{
       'nama': nama,
       'email': email,
-      'alamat': alamat,
-      'noTelepon': noTelepon,
-      'foto': foto,
+      'gambar': gambar,
     };
   }
 
-  factory person.fromMap(Map<String, dynamic> map) {
-    return person(
+  factory Person.fromMap(Map<String, dynamic> map) {
+    return Person(
       nama: map['nama'] as String,
       email: map['email'] as String,
-      alamat: map['alamat'] as String,
-      noTelepon: map['noTelepon'] as String,
-      foto: map['foto'] as String,
+      gambar: map['gambar'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory person.fromJson(String source) =>
-      person.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Person.fromJson(String source) =>
+      Person.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() {
-    return 'person(nama: $nama, email: $email, alamat: $alamat, noTelepon: $noTelepon, foto: $foto)';
-  }
+  String toString() => 'Person(nama: $nama, email: $email, gambar: $gambar)';
 
   @override
-  bool operator ==(covariant person other) {
+  bool operator ==(covariant Person other) {
     if (identical(this, other)) return true;
 
-    return other.nama == nama &&
-        other.email == email &&
-        other.alamat == alamat &&
-        other.noTelepon == noTelepon &&
-        other.foto == foto;
+    return other.nama == nama && other.email == email && other.gambar == gambar;
   }
 
   @override
-  int get hashCode {
-    return nama.hashCode ^
-        email.hashCode ^
-        alamat.hashCode ^
-        noTelepon.hashCode ^
-        foto.hashCode;
-  }
+  int get hashCode => nama.hashCode ^ email.hashCode ^ gambar.hashCode;
 }

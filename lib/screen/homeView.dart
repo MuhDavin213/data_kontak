@@ -24,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text("Daftar Orang"),
       ),
-      body: FutureBuilder<List<person>>(
+      body: FutureBuilder<List<Person>>(
         future: _controller.getPeople(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -33,8 +33,18 @@ class _HomeViewState extends State<HomeView> {
             return Center(child: Text("Error: ${snapshot.error}"));
           } else {
             return ListView.builder(
-                itemCount: snapshot.data?.length ?? 0,
-                itemBuilder: (context, index) {});
+              itemCount: snapshot.data?.length ?? 0,
+              itemBuilder: (context, index) {
+                Person person = snapshot.data![index];
+                return ListTile(
+                  title: Text(person.nama),
+                  subtitle: Text(person.email),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(person.gambar),
+                  ),
+                );
+              },
+            );
           }
         },
       ),

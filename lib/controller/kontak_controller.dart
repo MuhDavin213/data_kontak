@@ -48,11 +48,11 @@ class KontakController {
     }
   }
 
-  Future<List<person>> getPeople() async {
+  Future<List<Person>> getPeople() async {
     try {
       List<dynamic> peopleData = await kontakService.fetchPeople();
-      List<person> people =
-          peopleData.map((json) => person.fromMap(json)).toList();
+      List<Person> people =
+          peopleData.map((json) => Person.fromMap(json)).toList();
       return people;
     } catch (e) {
       print(e);

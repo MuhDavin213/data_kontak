@@ -56,7 +56,7 @@ class KontakController {
       return people;
     } catch (e) {
       print(e);
-      throw Exception("Failed to get people");
     }
+    throw Exception("Failed to get people");
   }
 }

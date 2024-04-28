@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Selamat Malam'),
           backgroundColor: Colors.amber,
         ),
-        body: const HomeView(),
+        body: const FormKontak(),
       ),
     );
   }

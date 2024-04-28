@@ -23,7 +23,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Daftar Orang"),
+        title: const Text("Daftar Orang"),
       ),
       body: FutureBuilder<List<Person>>(
         future: _controller.getPeople(),
@@ -51,8 +51,10 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const FormKontak()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FormKontak()),
+          );
         },
         child: const Icon(Icons.add),
       ),
